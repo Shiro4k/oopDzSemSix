@@ -34,21 +34,36 @@ public class Warehouse implements Product{
     }
     @Override
     public String getArticle() {
-        return products.get(0).getArticle();
+        StringBuilder articles = new StringBuilder();
+        for (Product product : products) {
+            articles.append(product.getArticle()).append(", ");
+        }
+        return articles.toString();
     }
 
     @Override
     public String getName() {
-        return products.get(0).getName();
+        StringBuilder names = new StringBuilder();
+        for (Product product : products) {
+            names.append(product.getName()).append(", ");
+        }
+        return names.toString();
     }
 
-    @Override
     public int getQuantity() {
-        return products.get(0).getQuantity();
+        int totalQuantity = 0;
+        for (Product product : products) {
+            totalQuantity += product.getQuantity();
+        }
+        return totalQuantity;
     }
 
     @Override
     public double getPrice() {
-        return products.get(0).getPrice();
+        double totalPrice = 0.0;
+        for (Product product : products) {
+            totalPrice += product.getPrice();
+        }
+        return totalPrice;
     }
 }
